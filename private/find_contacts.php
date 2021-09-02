@@ -10,7 +10,7 @@ while ($data = mysqli_fetch_assoc($contacts)) {
     $lastmsg = array("sent_by" => $_SESSION['user_id'], "sent_to" => $data['unique_id']);
     $latest = find_latest_messages($lastmsg);
     $unread = find_unread_messages($lastmsg);
-    $result .= "<a class='list-group-item text-white proton ' onclick=\"user_description('" . $data['unique_id'] . "');keepfindingtext('" . $data['unique_id'] . "')\" href='#' style='background-color:#098381;'> 
+    $result .= "<a class='list-group-item  proton' onclick=\"user_description('" . $data['unique_id'] . "');keepfindingtext('" . $data['unique_id'] . "')\" href='#'> 
         <div class='media'>";
     if ($data['online_status'] == 'true') {
         $result .= "<span class='online-status'></span>";
@@ -19,7 +19,7 @@ while ($data = mysqli_fetch_assoc($contacts)) {
     $result .= "<img src='assets/images/avatar/" . $data['avatar'] . "' alt='user' width='60' height='60' class='rounded-pill' >";
 
     if ($unread['unread'] >= 1) {
-        $result .= "<span class='badge badge-danger ' style='position:absolute; top:1px; right:1px; display:table;'>" . $unread['unread'] . "</span>";
+        $result .= "<span class='badge badge-danger ' style='postion:absolute; top:1px; right:1px; display:table;'>" . $unread['unread'] . "</span>";
     }
     $result .= "<div class='media-body ml-1'>
         <div class='d-flex align-items-end justify-content-between mb-1'>

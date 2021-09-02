@@ -1,25 +1,25 @@
 <?php
 require_once("initialize.php");
 require_login();
-$id= $_GET["idt"] ?? $_SESSION['user_id'];
-$contact=find_contact_by_id($id);
-if(empty($contact)){
-    $contact=find_contact_by_id($_SESSION['user_id']);
+$id = $_GET["idt"] ?? $_SESSION['user_id'];
+$contact = find_contact_by_id($id);
+if (empty($contact)) {
+    $contact = find_contact_by_id($_SESSION['user_id']);
 }
-        $result='';
-    // Display All Contacts  
-        
-        $result.="<div class='contactdtls animate__animated animate__fadeInUp'>
+$result = '';
+// Display All Contacts  
+
+$result .= "<div class='contactdtls animate__animated animate__fadeInUp'>
                  
-                  <img src='assets/images/avatar/".$contact["avatar"]."' class='profilep'>   
-                  <div class='calicn text-light text-center row justify-content-around'>
+                  <img src='assets/images/avatar/" . $contact["avatar"] . "' class='profilep'>   
+                  <div class='calicn text-center row justify-content-around'>
                         <div class='col'>
-                        <a class='text-warning' href = 'mailto: ".$contact["email"]."'> <i class='zmdi zmdi-email'></i></a>
+                        Email <a class='' href = 'mailto: " . $contact["email"] . "'> <i class='zmdi zmdi-email'></i></a>
                         </div>
                     </div>
                   ";
-              
-                        $result.="    
+
+$result .= "    
                     <hr>
                     <ul class=''>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
@@ -29,19 +29,19 @@ if(empty($contact)){
                         </svg>
                         <li><span>Last Login</span>
                            ";
-                           if($contact['online_status']=='true'){
-                            $result.="<p class='text-lead' style='color:rgb(19, 231, 0);'>online ...</p>";
-                        }else{
-                            $result.="<p class='text-lead' style='color:rgb(19, 231, 0);'>". get_online_format($contact['last_login'])."</p>";
-                        }
-                        $result.="
+if ($contact['online_status'] == 'true') {
+    $result .= "<p class='text-lead'style ='color:rgb(19, 231, 0);'>online ...</p>";
+} else {
+    $result .= "<p class='text-lead' style='color:rgb(19, 231, 0);'>" . get_online_format($contact['last_login']) . "</p>";
+}
+$result .= "
                         </li>
                        
                         <li><span>Username</span>
-                            <p>@".$contact["username"]."</p>
+                            <p>@" . $contact["username"] . "</p>
                         </li>
                         <li><span>Email</span>
-                            <p class='text-truncate'>".$contact["email"]."</p>
+                            <p class='text-truncate'>" . $contact["email"] . "</p>
                         </li>
                         <hr>
                         <li>
@@ -59,7 +59,7 @@ if(empty($contact)){
                         </li>
                         <li>
 
-                            <p style='color: red; text-shadow: 1px 1px 1px rgb(29, 29, 29);'> <svg
+                            <p class='block' onclick=\"block_user('" . $contact['username'] . "');\"> <svg
                                     xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'
                                     class='bi bi-x-circle-fill' viewBox='0 0 16 16'>
                                     <path
@@ -73,10 +73,9 @@ if(empty($contact)){
                     </div>
                 </div>
                ";
-            
-            
-       
-       
- 
-            echo $result;
-?>
+
+
+
+
+
+echo $result;

@@ -8,7 +8,7 @@ $chat = find_group_messages($msg);
 $result = "";
 //In case There Is No message , Display This
 if (mysqli_num_rows($chat) == 0) {
-    $result .= "<h1>No Chat found with this conversation</h1>";
+    $result .= "<h5 class='nochatfound'>No Chat found with this conversation</h5>";
 }
 // If there is Message Dispaly This
 else {
@@ -17,7 +17,7 @@ else {
 
         if ($today != get_date_portion($data['text_time'])) {
             $today = get_date_portion($data['text_time']);
-            $result .= " <div class='bg-secondary rounded d-table px-4 py-1 border rounded-pill text-white'
+            $result .= " <div class='date_separator'
             style='margin: 0px auto; clear:both;'>" .
                 $today .
                 "</div><hr><br>";
@@ -27,7 +27,7 @@ else {
         $result .= "<li class='" . $me . "'>";
         // If The Text If From Me, then Don't Display The sender Name
         if (empty($me)) {
-            $result .= "<div style=' color:brown;'>
+            $result .= "<div class='group_sender'>
                         <span>" . $data['first_name'] . " " . $data['last_name'] . "</span>
                     </div>";
         }
