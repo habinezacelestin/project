@@ -1,0 +1,279 @@
+$onlineColor: rgb(19, 231, 0) !important;
+$mainDarkColor: #0798bd !important;
+$mainLightDarkColor: #0fc5e6 !important;
+$chatBackground: #83c7bf !important;
+$mainBlueColor: var(--primary);
+$textColor: rgb(0, 0, 0);
+$mutedColor: rgb(180, 180, 180);
+$mainLightColor: rgb(21, 208, 255) !important;
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+.cursor-resize {
+  cursor: ew-resize;
+}
+
+.contacts {
+  a {
+    text-decoration: none;
+    color: #eee;
+  }
+  a:hover.active {
+    background-color: $mainBlueColor;
+  }
+
+  .list-group-item {
+    .badge,
+    .media small {
+      position: absolute;
+      bottom: 0px;
+      font-size: 10px;
+      right: 10px;
+    }
+    .media {
+      .online-status {
+        position: absolute;
+        top: 20px;
+        left: 16px;
+        width: 10px;
+        border-radius: 100%;
+        height: 10px;
+        background-color: $onlineColor;
+      }
+      .ltsmsg {
+        margin: 0px;
+        padding: 0px;
+        max-width: 200px;
+        overflow: hidden;
+      }
+    }
+  }
+  .list-group-item:hover {
+    background-color: $mainDarkColor;
+  }
+
+  .settings {
+    height: 60px;
+    div {
+      padding: 17px;
+    }
+    div:hover {
+      background-color: $mainDarkColor;
+    }
+  }
+}
+
+.list-group-item {
+  background-color: $mainLightDarkColor;
+}
+/* Contact List Section End --------------------------------- */
+
+/* Messaeg Aka Chat Section Start --------------------------------- */
+.message_section {
+  ul {
+    height: 88vh;
+    overflow: scroll;
+    li {
+      position: relative;
+      display: table;
+      background-color: $chatBackground;
+      border-radius: 20px 20px 20px 0px;
+      max-width: 70%;
+      min-width: 25%;
+      padding: 10px 20px 20px 20px;
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      margin: 5px 0px;
+      clear: both;
+      line-height: 22px;
+      color: $textColor;
+
+      .reply {
+        border-radius: 5px;
+        font-size: 13px;
+        width: 120%;
+        padding-left: 5px;
+        margin-left: -10%;
+        border-left: 3px solid rgba(0, 0, 0, 0.657);
+        background-color: rgba(12, 225, 240, 0.842);
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .deltime {
+        position: absolute;
+        right: 20px;
+      }
+
+      img {
+        max-width: 300px;
+      }
+    }
+
+    li.me {
+      border-radius: 20px 20px 0px 20px;
+      float: right;
+      clear: both;
+    }
+    li:hover {
+      background-color: #9ec9c9;
+    }
+  }
+  .sendmsgsection {
+    i {
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        color: $mainBlueColor;
+      }
+    }
+  }
+}
+
+/* Contact Destion Section  -------------------------*/
+
+.contactdtls {
+  width: 100%;
+
+  .profilep {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    border: 2px solid rgba(37, 236, 177, 0.37);
+    padding: 2px;
+
+    transition: 0.2s;
+    background-color: var(--info);
+  }
+
+  .calicn {
+    .col {
+      margin: 0px;
+      :last-child &:hover {
+        color: $mainLightDarkColor;
+      }
+    }
+  }
+
+  .profilep:hover {
+    border: 5px solid var(--info);
+    padding: 2px;
+  }
+
+  ul {
+    padding: 0px;
+
+    li {
+      padding: 0px 10px;
+      width: 100%;
+      margin: 0px;
+      transition: 0.4s;
+      border-right: 2px solid #313333;
+      list-style-type: none;
+      span {
+        color: $mutedColor;
+        font-family: "Courier New", Courier, monospace;
+      }
+    }
+
+    li:hover {
+      background: $mainLightDarkColor;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .contacts {
+    .ltsmsg {
+      width: 100px;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .contacts {
+    .media h6 {
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .badge,
+    .media small {
+      position: absolute;
+      bottom: 0px;
+      right: 40px;
+    }
+  }
+}
+
+// Side Panel Navigation Bar
+.sidepanel {
+  width: 0px;
+  position: fixed;
+  z-index: 10;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgb(8, 181, 194);
+  overflow-x: hidden;
+  transition: 0.2s;
+  padding-top: 10px;
+
+  ul {
+    li {
+      font-weight: bold;
+      i {
+        color: $mainLightColor;
+        margin-left: 20px;
+      }
+      &:hover {
+        color: white;
+      }
+      &:last-child {
+        i {
+          color: rgb(255, 89, 89);
+        }
+        color: rgb(236, 82, 82);
+      }
+    }
+  }
+  .tophead {
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      padding: 2px;
+      border: 3px solid $mainDarkColor;
+    }
+    .myselfinfo {
+      padding-left: 10px;
+      color: #f1f1f1;
+      h5 {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .closeside a {
+    margin: -10px 20px 20px 0px;
+    text-decoration: none;
+    font-size: 35px;
+    color: #eeeeee;
+    float: right;
+    width: 50px;
+    text-align: center;
+    height: 50px;
+    transition: 0.3s;
+    &:hover {
+      transform: rotate(90deg);
+      color: rgb(190, 41, 41);
+    }
+  }
+}
